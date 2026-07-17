@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Board — ECS X · East Coast Showdown</title>
+<meta name="description" content="Meet the executive board behind ECS X — the family throwing the tenth East Coast Showdown." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --crimson:#57172F;--crimson-2:#6d2340;--brick:#A53F2B;--peony:#D56AA0;
+  --gold:#FCBF49;--gold-deep:#B57A1C;--wheat:#EFD6AC;--paper:#F7EBD3;
+  --ink:#40101F;--cream-text:#FBEFDD;--muted-light:#e7c7ce;--muted-ink:#8a5140;
+  --maxw:1160px;--display:"Cormorant Garamond",Georgia,serif;--script:"Pinyon Script",cursive;--ui:"Jost",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--crimson);color:var(--cream-text);font-family:var(--ui);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-family:var(--ui);font-weight:500;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.75em}
+.eyebrow.center{justify-content:center}
+.eyebrow::before,.eyebrow.center::after{content:"";width:30px;height:1px;background:var(--gold);opacity:.7}
+.flag{font-family:var(--ui);font-size:.76rem;letter-spacing:.05em;color:var(--gold-deep);background:color-mix(in srgb,var(--gold) 22%,transparent);padding:.3em .8em;border-radius:6px;display:inline-block}
+.btn{font-family:var(--ui);font-weight:600;font-size:.9rem;letter-spacing:.02em;padding:.72em 1.5em;border-radius:999px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.55em;transition:transform .16s,box-shadow .22s,background .2s,color .2s}
+.btn-primary{background:var(--gold);color:#4a2c00}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(252,191,73,.6)}
+.btn-outline{background:transparent;color:var(--cream-text);border:1.5px solid color-mix(in srgb,var(--gold) 55%,transparent)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* NAV (shared with home) */
+header.nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--crimson) 82%,transparent);border-bottom:1px solid color-mix(in srgb,var(--gold) 26%,transparent)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{height:48px;width:auto;filter:drop-shadow(0 3px 9px rgba(0,0,0,.45))}
+.brand-label{display:flex;flex-direction:column;padding-left:12px;border-left:1px solid color-mix(in srgb,var(--gold) 32%,transparent);font-family:var(--ui);font-weight:500;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-light);line-height:1.15}
+.brand-label small{font-size:.57rem;letter-spacing:.2em;color:var(--gold);margin-top:3px}
+.brand-label b{font-weight:700}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:.9rem;font-weight:500}
+.nav-links a{color:var(--muted-light);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-toggle{display:none;background:none;border:none;color:var(--cream-text);cursor:pointer;padding:6px}
+
+/* TORAN */
+.toran{width:100%;height:auto;display:block}
+.toran .swag{fill:none;stroke:var(--gold);stroke-width:2;opacity:.85}
+.sway{transform-origin:top center;animation:sway 6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-.5deg)}50%{transform:rotate(.5deg)}}
+
+/* HEADER */
+.board-hero{position:relative;text-align:center;padding:6px 0 clamp(30px,5vw,54px);overflow:hidden}
+.board-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--brick) 55%,transparent),transparent 55%);z-index:0}
+.board-hero .inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:clamp(28px,5vw,50px) 26px 0}
+.board-hero .script{font-family:var(--script);font-size:clamp(1.7rem,5vw,2.6rem);color:var(--peony);line-height:1;margin-bottom:2px}
+.board-hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;letter-spacing:.01em;margin:8px 0 0}
+.board-hero p{color:var(--muted-light);max-width:56ch;margin:20px auto 0;font-size:1.06rem}
+
+/* SECTIONS */
+.tier{padding:clamp(40px,6vw,72px) 0}
+.tier-head{display:flex;align-items:center;gap:18px;margin-bottom:36px}
+.tier-head h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.4vw,2.3rem);color:var(--wheat);white-space:nowrap}
+.tier-head .rule{height:1px;flex:1;background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 50%,transparent),transparent)}
+
+/* MEMBER CARD */
+.featured-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,240px));justify-content:center;gap:22px}
+.member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.tier + .tier{padding-top:0}
+.member{background:var(--crimson-2);border:1px solid color-mix(in srgb,var(--gold) 22%,transparent);border-radius:16px;overflow:hidden;text-align:center;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column}
+.member:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 20px 44px -24px rgba(0,0,0,.6)}
+.portrait{aspect-ratio:1/1;position:relative;background:radial-gradient(ellipse at 50% 30%,var(--brick),var(--crimson) 85%);display:grid;place-items:center;border-bottom:1px solid color-mix(in srgb,var(--gold) 30%,transparent);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .mandala{position:absolute;width:82%;color:var(--gold);opacity:.16}
+.portrait .bust{width:44%;color:var(--gold);opacity:.55;position:relative}
+.member .body{padding:20px 16px 24px}
+.member h3{font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--cream-text);line-height:1.1}
+.member .role{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.member .flavor{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--muted-light);margin-top:10px}
+/* featured directors on paper */
+.member.is-director{background:var(--paper)}
+.member.is-director h3{color:var(--crimson)}
+.member.is-director .role{color:var(--gold-deep)}
+.member.is-director .flavor{color:var(--muted-ink)}
+.member.is-director .portrait{border-bottom-color:color-mix(in srgb,var(--gold-deep) 40%,transparent)}
+
+/* JOIN band */
+.join{background:linear-gradient(115deg,var(--brick),#8f2f3f 50%,var(--peony));text-align:center;padding:clamp(56px,8vw,88px) 0}
+.join h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.4vw,3rem);color:#fff}
+.join p{color:#fbe6ec;max-width:48ch;margin:14px auto 26px}
+
+/* FOOTER (shared) */
+footer{background:#3d0f22;border-top:1px solid color-mix(in srgb,var(--gold) 22%,transparent);padding:60px 0 38px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-brand{max-width:340px}
+.foot-mark{font-family:var(--display);font-weight:700;font-size:1.95rem;letter-spacing:.05em;color:var(--gold);line-height:1}
+.foot-mark .x{font-style:italic;padding-left:.1em}
+.foot-brand p{color:var(--muted-light);font-size:.92rem;margin-top:14px}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{font-family:var(--ui);font-size:.78rem;letter-spacing:.05em;padding:.5em .9em;border:1px solid color-mix(in srgb,var(--gold) 26%,transparent);border-radius:999px;color:var(--muted-light);transition:all .2s}
+.socials a:hover{color:var(--crimson);background:var(--gold);border-color:var(--gold)}
+.foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid color-mix(in srgb,var(--gold) 18%,transparent);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--ui);font-size:.74rem;letter-spacing:.06em;color:var(--muted-light)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:640px){
+  .nav-links{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--crimson-2);border-bottom:1px solid color-mix(in srgb,var(--gold) 24%,transparent);padding:16px 26px 24px;transform:translateY(-150%);transition:transform .3s}
+  .nav-links.open{transform:none}.nav-links a{padding:9px 0;font-size:1.05rem}
+  .nav-toggle{display:block}.foot-top{flex-direction:column}
+}
+@media (max-width:470px){.brand-label{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="ECS X home">
+      <img class="brand-logo js-logo" alt="East Coast Showdown" />
+      <span class="brand-label">East Coast Showdown<small>Tenth Edition &middot; <b>X</b></small></span>
+    </a>
+    <nav class="nav-links" id="menu">
+      <a href="index.html#about">About</a>
+      <a href="board.html" class="active">Board</a>
+      <a href="index.html#apply">Apply</a>
+      <a href="index.html#charity">Charity</a>
+      <a href="index.html#sponsors">Sponsors</a>
+      <a href="index.html#archives">Archives</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="index.html#apply">Apply to compete</a>
+      <button class="nav-toggle" id="toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="board-hero">
+  <svg class="toran sway" viewBox="0 0 1200 96" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+    <path class="swag" d="M0,6 Q150,78 300,6 Q450,78 600,6 Q750,78 900,6 Q1050,78 1200,6"/>
+    <g id="drops"></g>
+  </svg>
+  <div class="inner">
+    <div class="script">meet</div>
+    <span class="eyebrow center">ECS X · The Executive Board</span>
+    <h1>The family behind the shaadi</h1>
+    <p>Ten years of the East Coast Showdown don't come together on their own. This is the team pulling off the celebration — from the mandap to the last dance.</p>
+    <p style="margin-top:18px"><span class="flag">Replace names, photos &amp; roles below with your real board</span></p>
+  </div>
+</section>
+
+<!-- BOARD (rendered from the roster in the script below) -->
+<div id="board" class="wrap"></div>
+
+<!-- JOIN -->
+<section class="join">
+  <div class="wrap">
+    <span class="eyebrow center" style="color:var(--gold)">Applications</span>
+    <h2 style="margin-top:14px">Want a seat at the table?</h2>
+    <p>Board applications open each year. If you want to help throw the biggest shaadi on the circuit, we'd love to have you.</p>
+    <a class="btn btn-primary" href="mailto:eastcoastshowdown.uva@gmail.com">Get in touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-mark">ECS&nbsp;<span class="x">X</span></div>
+        <p>The intercollegiate Bhangra and Garba Raas dance competition, hosted at the University of Virginia in Charlottesville. Ten years, one shaadi.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">Follow the celebration</div>
+        <div class="socials">
+          <a href="https://www.instagram.com/eastcoast.showdown" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@eastcoastshowdown" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/EastCoastShowdown/" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:eastcoastshowdown.uva@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> East Coast Showdown · University of Virginia</span>
+      <span><a href="index.html">Home</a> · <a href="board.html">Board</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* logo (embedded so the page is self-contained) */
+const LOGO="ecs-logo-hero.png";
+document.querySelectorAll('.js-logo').forEach(function(el){el.src=LOGO;});
+
+/* mobile menu */
+const toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
+toggle.addEventListener('click',function(){var o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');});});
+
+/* toran pom-poms */
+(function(){
+  var g=document.getElementById('drops');if(!g)return;
+  var colors=['#FCBF49','#D56AA0','#A53F2B'],spans=[[0,300],[300,600],[600,900],[900,1200]];
+  spans.forEach(function(s){var x0=s[0],x1=s[1];
+    for(var t=0.12;t<=0.88;t+=0.19){
+      var x=x0+(x1-x0)*t,y=6+42*Math.sin(Math.PI*t),len=8+Math.random()*14,c=colors[Math.floor(Math.random()*3)];
+      g.insertAdjacentHTML('beforeend','<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y+len)+'" stroke="#FCBF49" stroke-width="1.2" opacity="0.7"/><circle cx="'+x+'" cy="'+(y+len+4)+'" r="4.2" fill="'+c+'"/>');
+    }
+  });
+})();
+
+/* =========================================================
+   THE BOARD — edit this list. That's the whole roster.
+   tier: "director" (featured up top) or "exec" (grid below)
+   name / role are required. flavor + photo are optional.
+   photo: "https://..." or a local file like "photos/asha.jpg"
+   ========================================================= */
+const board = [
+  { group:"Directors", featured:true, members:[
+    { name:"Neha Amarnath", photo:"photos/neha.jpg",  role:"Director", flavor:"Hosting the whole shaadi" },
+    { name:"Ronit Shah", photo:"photos/ronit.jpg",     role:"Director", flavor:"Hosting the whole shaadi" },
+    { name:"Sanjana Rao", photo:"photos/sanjana.jpg",    role:"Director", flavor:"Hosting the whole shaadi" },
+  ]},
+  { group:"Senior Advisors", featured:true, members:[
+    { name:"Rahil Karkar", photo:"photos/rahil.jpg",   role:"Senior Advisor", flavor:"Been to every wedding before" },
+    { name:"Nitya Varigala", photo:"photos/nitya.jpg", role:"Senior Advisor", flavor:"Been to every wedding before" },
+  ]},
+  { group:"Executive Board", members:[
+    { name:"Khushi Shah", photo:"photos/khushi.jpg",        role:"Raas Judging",                        flavor:"Scores the raas floor" },
+    { name:"Eshaan Jassal", photo:"photos/eshaan.jpg",      role:"Bhangra Judging",                     flavor:"Scores the bhangra floor" },
+    { name:"Bharathi Kancharla", photo:"photos/bharathi.jpg", role:"Fundraising",                         flavor:"Fills the celebration fund" },
+    { name:"Mishti Mittal", photo:"photos/mishti.jpg",      role:"Fundraising",                         flavor:"Fills the celebration fund" },
+    { name:"Yash Sunkara", photo:"photos/yash.jpg",       role:"Head Liaison",                        flavor:"Welcomes every baraat" },
+    { name:"Simar Malhi", photo:"photos/simar.jpg",        role:"Head Liaison",                        flavor:"Welcomes every baraat" },
+    { name:"Isha Shah", photo:"photos/isha.jpg",          role:"Hospitality · Food & Swag",      flavor:"Keeps the guests fed & gifted" },
+    { name:"Simran Kulkarni", photo:"photos/simran.jpg",    role:"Hospitality · Food & Swag",      flavor:"Keeps the guests fed & gifted" },
+    { name:"Roshni Lobo", photo:"photos/roshni.jpg",        role:"Hospitality · Food & Swag",      flavor:"Keeps the guests fed & gifted" },
+    { name:"Soham Sinha", photo:"photos/soham.jpg",        role:"Hospitality · Transportation & Lodging", flavor:"Gets everyone to the venue" },
+    { name:"Sanika Kammara", photo:"photos/sanika.jpg",     role:"Logistics",                           flavor:"Runs the venue like clockwork" },
+    { name:"Garv Chawla", photo:"photos/garv.jpg",        role:"Logistics",                           flavor:"Runs the venue like clockwork" },
+    { name:"Saniya Sangle", photo:"photos/saniya.jpg",      role:"Marketing",                           flavor:"Sends out the invitations" },
+    { name:"Kavya Shah", photo:"photos/kavya.jpg",         role:"Marketing",                           flavor:"Sends out the invitations" },
+    { name:"Amika Kapoor", photo:"photos/amika.jpg",       role:"Mixer",                               flavor:"Cuts the eight-minute set" },
+    { name:"Parneet Virk", photo:"photos/parneet.jpg",       role:"Mixer",                               flavor:"Cuts the eight-minute set" },
+    { name:"Meera Shah", photo:"photos/meera.jpg",         role:"Raas Registration",                   flavor:"Signs in the raas teams" },
+    { name:"Sanjum Sandhu", photo:"photos/sanjum.jpg",      role:"Bhangra Registration",                flavor:"Signs in the bhangra teams" },
+    { name:"Niyathi Admala", photo:"photos/niyathi.jpg",     role:"Social",                              flavor:"Runs the family group chat" },
+    { name:"Sahi Balguri", photo:"photos/sahi.jpg",      role:"Social",                              flavor:"Runs the family group chat" },
+    { name:"Mann Patel", photo:"photos/mann.jpg",         role:"Sponsorship",                         flavor:"Charms the patrons" },
+    { name:"Samai Patel", photo:"photos/samai.jpg",        role:"Sponsorship",                         flavor:"Charms the patrons" },
+    { name:"Ausdin Rahman", photo:"photos/ausdin.jpg",      role:"Technology",                          flavor:"Keeps the whole show running" },
+    { name:"Aryan Dhiman", photo:"photos/aryan.jpg",       role:"Technology",                          flavor:"Keeps the whole show running" },
+  ]},
+];
+
+/* placeholder portrait: mandala ring + bust silhouette */
+const PLACEHOLDER = ''
+  + '<svg class="mandala" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">'
+  +   '<circle cx="100" cy="100" r="52"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="96"/>'
+  +   '<g id="pt"><path d="M100 34 Q112 64 100 78 Q88 64 100 34Z"/></g>'
+  +   '<use href="#pt"/><use href="#pt" transform="rotate(45 100 100)"/><use href="#pt" transform="rotate(90 100 100)"/><use href="#pt" transform="rotate(135 100 100)"/><use href="#pt" transform="rotate(180 100 100)"/><use href="#pt" transform="rotate(225 100 100)"/><use href="#pt" transform="rotate(270 100 100)"/><use href="#pt" transform="rotate(315 100 100)"/>'
+  + '</svg>'
+  + '<svg class="bust" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="38" r="16" fill="currentColor"/><path d="M20 86 a30 30 0 0 1 60 0 Z" fill="currentColor"/></svg>';
+
+function escapeHtml(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+function card(m, isFeatured){
+  var isDir = !!isFeatured;
+  var portrait = m.photo
+    ? '<img src="'+escapeHtml(m.photo)+'" alt="'+escapeHtml(m.name)+'" />'
+    : PLACEHOLDER;
+  var flavor = m.flavor ? '<div class="flavor">"'+escapeHtml(m.flavor)+'"</div>' : '';
+  return ''
+    + '<article class="member reveal'+(isDir?' is-director':'')+'">'
+    +   '<div class="portrait">'+portrait+'</div>'
+    +   '<div class="body">'
+    +     '<h3>'+escapeHtml(m.name)+'</h3>'
+    +     '<div class="role">'+escapeHtml(m.role)+'</div>'
+    +     flavor
+    +   '</div>'
+    + '</article>';
+}
+
+var boardHtml = board.map(function(g){
+  var cards = g.members.map(function(m){return card(m, !!g.featured);}).join('');
+  return '<section class="tier">'
+    + '<div class="tier-head reveal"><h2>'+escapeHtml(g.group)+'</h2><span class="rule"></span></div>'
+    + '<div class="'+(g.featured?'featured-row':'member-grid')+'">'+cards+'</div>'
+    + '</section>';
+}).join('');
+document.getElementById('board').innerHTML = boardHtml;
+
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

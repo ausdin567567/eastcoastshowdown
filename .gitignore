@@ -1,0 +1,8 @@
+# OS
+.DS_Store
+Thumbs.db
+# archives / build artifacts
+*.zip
+# tooling
+node_modules/
+models/
