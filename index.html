@@ -263,6 +263,10 @@ body.intro-lock{overflow:hidden}
 .ed-teams .r2{background:var(--wheat);color:var(--ink)}
 .ed-teams .r3{background:var(--peony);color:#3a0d1c}
 .ed-note{font-size:.9rem;color:var(--muted-light);font-style:italic;margin-top:2px}
+.ed-board{grid-column:1/-1;margin-top:6px;padding-top:18px;border-top:1px solid color-mix(in srgb,var(--gold) 22%,transparent)}
+.ed-board-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:7px 20px;font-size:.82rem;color:var(--muted-light)}
+.ed-board-list li{display:flex;justify-content:space-between;gap:10px}
+.ed-board-list .role{color:var(--gold);opacity:.85;font-size:.68rem;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;flex:none}
 
 /* ============================================================
    FOOTER
@@ -597,6 +601,39 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
               <li>Blue Jay Bhangra</li>
             </ul>
           </div>
+          <div class="ed-board">
+            <div class="ed-group-title">Board</div>
+            <ul class="ed-board-list">
+              <li>Rahil Karkar <span class="role">Director</span></li>
+              <li>Tanvee Sunkari <span class="role">Director</span></li>
+              <li>Nitya Varigala <span class="role">Director</span></li>
+              <li>Anandita Sharma <span class="role">Senior Advisor</span></li>
+              <li>Eshaan Jassal <span class="role">Logistics</span></li>
+              <li>Neha Amarnath <span class="role">Logistics</span></li>
+              <li>Yash Sunkara <span class="role">Technology</span></li>
+              <li>Rishi Sarraff <span class="role">Technology</span></li>
+              <li>Shritika Rao <span class="role">Raas Judging</span></li>
+              <li>Priyanshi Jeevagan <span class="role">Bhangra Judging</span></li>
+              <li>Bhadra Kadangal <span class="role">Head Liaison</span></li>
+              <li>Soham Sinha <span class="role">Head Liaison</span></li>
+              <li>Suraj Vaddi <span class="role">Raas Registration</span></li>
+              <li>Suhani Malhotra <span class="role">Bhangra Registration</span></li>
+              <li>Sanjum Sandhu <span class="role">Hospitality — Food &amp; Swag</span></li>
+              <li>Samai Patel <span class="role">Hospitality — Food &amp; Swag</span></li>
+              <li>Sanjana Rao <span class="role">Hospitality — Food &amp; Swag</span></li>
+              <li>Aryan Dhiman <span class="role">Hospitality — Transport &amp; Lodging</span></li>
+              <li>Rahul Sunilkumar <span class="role">Marketing</span></li>
+              <li>Sanjana Murugavel <span class="role">Marketing</span></li>
+              <li>Sahi Balguri <span class="role">Fundraising</span></li>
+              <li>Khushi Shah <span class="role">Fundraising</span></li>
+              <li>Sanika Kammara <span class="role">Mixer</span></li>
+              <li>Bharathi Kancharla <span class="role">Mixer</span></li>
+              <li>Ronit Shah <span class="role">Sponsorship</span></li>
+              <li>Anjali Ashok <span class="role">Sponsorship</span></li>
+              <li>Meera Shah <span class="role">Social</span></li>
+              <li>Navya Aenugu <span class="role">Social</span></li>
+            </ul>
+          </div>
         </div>
       </details>
 
@@ -625,6 +662,37 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
               <li>New England Bhangra Club</li>
               <li>Classic City Bhangra</li>
               <li>UNC Bhangra Elite</li>
+            </ul>
+          </div>
+          <div class="ed-board">
+            <div class="ed-group-title">Board</div>
+            <ul class="ed-board-list">
+              <li>Anandita Sharma <span class="role">Director</span></li>
+              <li>Esha Sharma <span class="role">Director</span></li>
+              <li>Divya Lobo <span class="role">Senior Advisor</span></li>
+              <li>Akaash Kamdar <span class="role">Senior Advisor</span></li>
+              <li>Rishi Sarraff <span class="role">Logistics</span></li>
+              <li>Tanvee Sunkari <span class="role">Logistics</span></li>
+              <li>Kushan Dixit <span class="role">Technology</span></li>
+              <li>Nachiket Gusani <span class="role">Technology</span></li>
+              <li>Shruthi Solaiappan <span class="role">Marketing</span></li>
+              <li>Khushi Shah <span class="role">Marketing</span></li>
+              <li>Suhani Malhotra <span class="role">Social</span></li>
+              <li>Sanchya Kansal <span class="role">Sponsorship</span></li>
+              <li>Suraj Vaddi <span class="role">Sponsorship</span></li>
+              <li>Eshaan Jassal <span class="role">Fundraising</span></li>
+              <li>Navya Aenugu <span class="role">Fundraising</span></li>
+              <li>Darsh Devkar <span class="role">Hospitality</span></li>
+              <li>Sreya Peddi <span class="role">Hospitality</span></li>
+              <li>Rahil Karkar <span class="role">Hospitality</span></li>
+              <li>Nitya Varigala <span class="role">Mixer</span></li>
+              <li>Shivangi Singh <span class="role">Mixer</span></li>
+              <li>Nikki Shah <span class="role">Head Liaison</span></li>
+              <li>Priyanshi Jeevagan <span class="role">Head Liaison</span></li>
+              <li>Manmeet Singh <span class="role">Bhangra Registration</span></li>
+              <li>Dhriti Gampa <span class="role">Raas Registration</span></li>
+              <li>Krish Kothari <span class="role">Raas Judging</span></li>
+              <li>Sadhika Dhanasekar <span class="role">Bhangra Judging</span></li>
             </ul>
           </div>
         </div>
