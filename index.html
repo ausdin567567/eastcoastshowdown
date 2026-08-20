@@ -20,6 +20,7 @@
    gold zari, marigold toran, mandap arch, mehndi ornament.
    ============================================================ */
 :root{
+  --cursor-ring:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGQ0JGNDkiIHN0cm9rZT0iIzhBNUEwRiIgc3Ryb2tlLXdpZHRoPSIxIiBkPSJNMTYgMTQuNGE2LjggNC42IDAgMSAwIDAuMDAxIDBaIE0xNiAxNy45YTMuMyAyLjEgMCAxIDAgMC4wMDEgMFoiLz48cGF0aCBkPSJNOS42IDE2LjZhNi44IDQuNiAwIDAgMSA1LjItMy4zIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkU4QUUiIHN0cm9rZS13aWR0aD0iMS4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuODUiLz48cGF0aCBkPSJNMTYgNi40IEwyMC40IDExLjIgTDE2IDE1LjYgTDExLjYgMTEuMiBaIiBmaWxsPSIjRkJFRkREIiBzdHJva2U9IiM4QTVBMEYiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0xMS42IDExLjIgTDIwLjQgMTEuMiBNMTYgNi40IEwxNiAxNS42IE0xMy4yIDguOCBMMTYgMTEuMiBMMTguOCA4LjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhBNUEwRiIgc3Ryb2tlLXdpZHRoPSIwLjYiIG9wYWNpdHk9IjAuNyIvPjxwYXRoIGQ9Ik0xNiA3LjIgTDE3IDkuNSBMMTYgMTEuMiBMMTUgOS41IFoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTUiLz48ZyBmaWxsPSIjRkNCRjQ5IiBvcGFjaXR5PSIwLjkiPjxwYXRoIGQ9Ik0yNCA2LjUgbDAuOSAyIDIgMC45IC0yIDAuOSAtMC45IDIgLTAuOSAtMiAtMiAtMC45IDIgLTAuOVoiLz48cGF0aCBkPSJNOC40IDUuNCBsMC42IDEuMyAxLjMgMC42IC0xLjMgMC42IC0wLjYgMS4zIC0wLjYgLTEuMyAtMS4zIC0wLjYgMS4zIC0wLjZaIi8+PC9nPjwvc3ZnPgo=") 10 10;
   --crimson:#57172F;
   --crimson-2:#6d2340;      /* lifted maroon */
   --brick:#A53F2B;
@@ -39,7 +40,7 @@
   --ui:"Jost", system-ui, sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;cursor:var(--cursor-ring), auto}
 body{
   background:var(--crimson);
   color:var(--cream-text);
@@ -66,7 +67,7 @@ img,svg{display:block;max-width:100%}
 .lead{font-size:1.08rem;max-width:58ch;margin-top:18px}
 .flag{font-family:var(--ui);font-size:.76rem;letter-spacing:.05em;color:var(--gold-deep);font-style:normal;background:color-mix(in srgb,var(--gold) 22%, transparent);padding:.25em .7em;border-radius:5px;display:inline-block}
 
-.btn{font-family:var(--ui);font-weight:600;font-size:.9rem;letter-spacing:.02em;padding:.72em 1.5em;border-radius:999px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.55em;transition:transform .16s,box-shadow .22s,background .2s,color .2s}
+.btn{font-family:var(--ui);font-weight:600;font-size:.9rem;letter-spacing:.02em;padding:.72em 1.5em;border-radius:999px;border:none;cursor:var(--cursor-ring), pointer;display:inline-flex;align-items:center;gap:.55em;transition:transform .16s,box-shadow .22s,background .2s,color .2s}
 .btn-primary{background:var(--gold);color:#4a2c00}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(252,191,73,.6)}
 .btn-outline{background:transparent;color:var(--cream-text);border:1.5px solid color-mix(in srgb,var(--gold) 55%,transparent)}
@@ -88,7 +89,7 @@ header.nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(12px);
 .nav-links a{color:var(--muted-light);transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
 .nav-cta{display:flex;align-items:center;gap:12px}
-.nav-toggle{display:none;background:none;border:none;color:var(--cream-text);cursor:pointer;padding:6px}
+.nav-toggle{display:none;background:none;border:none;color:var(--cream-text);cursor:var(--cursor-ring), pointer;padding:6px}
 
 /* ============================================================
    TORAN garland (decorative top border)
@@ -203,7 +204,7 @@ body.intro-lock{overflow:hidden}
 .track .go{font-family:var(--ui);font-weight:600;font-size:.78rem;letter-spacing:.06em;color:var(--brick);display:inline-flex;gap:.5em}
 .track:hover .go{color:var(--peony)}
 .track-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.tbtn{font-family:var(--ui);font-weight:600;font-size:.79rem;padding:.55em 1.05em;border-radius:999px;display:inline-flex;align-items:center;gap:.4em;cursor:pointer;border:1.5px solid transparent;transition:transform .15s,background .2s,color .2s,border-color .2s}
+.tbtn{font-family:var(--ui);font-weight:600;font-size:.79rem;padding:.55em 1.05em;border-radius:999px;display:inline-flex;align-items:center;gap:.4em;cursor:var(--cursor-ring), pointer;border:1.5px solid transparent;transition:transform .15s,background .2s,color .2s,border-color .2s}
 .tbtn-primary{background:var(--crimson);color:var(--cream-text)}
 .tbtn-primary:hover{background:var(--brick);transform:translateY(-2px)}
 .tbtn-ghost{background:transparent;color:var(--crimson);border-color:color-mix(in srgb,var(--crimson) 32%,transparent)}
