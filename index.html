@@ -191,6 +191,16 @@ body.intro-lock{overflow:hidden}
   text-transform:uppercase;color:var(--muted-ink);opacity:.75}
 @media (prefers-reduced-motion:reduce){.intro-splash,.intro-splash .invite-card{transition:none}}
 
+/* confetti burst on "Open the Invitation" */
+#confetti{position:fixed;inset:0;z-index:305;pointer-events:none;overflow:hidden}
+.confetti-piece{position:absolute;top:-14px;width:8px;height:14px;opacity:.95;will-change:transform,opacity;
+  animation:confetti-fall var(--d,2.6s) var(--delay,0s) cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes confetti-fall{
+  0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:1}
+  100%{transform:translateY(105vh) translateX(var(--x,0px)) rotate(var(--r,720deg));opacity:0}
+}
+@media (prefers-reduced-motion:reduce){#confetti{display:none}}
+
 /* ============================================================
    APPLY tracks
    ============================================================ */
@@ -358,6 +368,7 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
     <div class="sd-hint">Tap to enter ECS X</div>
   </div>
 </div>
+<div id="confetti" aria-hidden="true"></div>
 
 <!-- ===================== NAV ===================== -->
 <header class="nav">
@@ -898,9 +909,31 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function(){
   const splash = document.getElementById('intro');
   const enter = document.getElementById('introEnter');
+  const confettiBox = document.getElementById('confetti');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!splash || !enter) return;
   enter.focus();
+
+  function launchConfetti(){
+    if(reduceMotion || !confettiBox) return;
+    const colors = ['#FCBF49','#D56AA0','#EFD6AC','#A53F2B','#FBEFDD'];
+    for(let i=0;i<90;i++){
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = (Math.random()*100)+'vw';
+      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+      if(Math.random()<0.35) piece.style.borderRadius = '50%';
+      piece.style.setProperty('--x', (Math.random()*160-80)+'px');
+      piece.style.setProperty('--r', (Math.random()*720+360)+'deg');
+      piece.style.setProperty('--d', (2+Math.random()*1.4)+'s');
+      piece.style.setProperty('--delay', (Math.random()*0.35)+'s');
+      confettiBox.appendChild(piece);
+      setTimeout(() => piece.remove(), 4200);
+    }
+  }
+
   enter.addEventListener('click', () => {
+    launchConfetti();
     splash.classList.add('leaving');
     document.body.classList.remove('intro-lock');
     setTimeout(() => splash.classList.add('gone'), 1200);
