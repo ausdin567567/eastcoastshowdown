@@ -247,6 +247,22 @@ body.intro-lock{overflow:hidden}
 .edition .yr{font-family:var(--ui);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-light);margin-top:4px}
 .edition.finale{border-color:var(--gold);background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 18%,var(--crimson-2)),var(--crimson-2))}
 .edition.finale .v{color:var(--gold)}
+.edition[open]{flex:1 1 100%;border-color:var(--gold)}
+.edition summary{cursor:pointer;list-style:none;outline:none}
+.edition summary::-webkit-details-marker{display:none}
+.edition .hint{display:block;margin-top:8px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep)}
+.edition .hint .chev{display:inline-block;transition:transform .2s;margin-left:2px}
+.edition[open] .hint .chev{transform:rotate(180deg)}
+.ed-body{text-align:left;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+@media (max-width:520px){.ed-body{grid-template-columns:1fr}}
+.ed-group-title{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ed-teams{list-style:none;display:grid;gap:6px;font-size:.85rem;color:var(--muted-light)}
+.ed-teams li{display:flex;align-items:center;gap:8px}
+.ed-teams .rank{font-family:var(--ui);font-weight:700;font-size:.58rem;letter-spacing:.03em;padding:.22em .6em;border-radius:999px;flex:none;white-space:nowrap}
+.ed-teams .r1{background:var(--gold);color:#4a2c00}
+.ed-teams .r2{background:var(--wheat);color:var(--ink)}
+.ed-teams .r3{background:var(--peony);color:#3a0d1c}
+.ed-note{font-size:.9rem;color:var(--muted-light);font-style:italic;margin-top:2px}
 
 /* ============================================================
    FOOTER
@@ -555,17 +571,195 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
     </div>
     <div class="timeline reveal">
       <div class="edition finale"><div class="v">X</div><div class="yr">2027 · The Shaadi</div></div>
-      <div class="edition"><div class="v">IX</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">VIII</div><div class="yr">2026</div></div>
-      <div class="edition"><div class="v">VII</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">VI</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">V</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">IV</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">III</div><div class="yr">Archive</div></div>
-      <div class="edition"><div class="v">II</div><div class="yr">Archive</div></div>
+
+      <details class="edition">
+        <summary><div class="v">IX</div><div class="yr">2026</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Georgia Tech Ramblin Raas</li>
+              <li><span class="rank r2">2nd</span>Illini Raas</li>
+              <li>Michigan Wolveraas</li>
+              <li>Steel City Raas</li>
+              <li>SBU Raaswalas</li>
+              <li>Philthy Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Gabroo Gulab Wargey</li>
+              <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
+              <li>Cornell Bhangra</li>
+              <li>CMU Bhangra</li>
+              <li>Georgia Tech Bhangra</li>
+              <li>Blue Jay Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VIII</div><div class="yr">2025</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Purdue Raas</li>
+              <li><span class="rank r2">2nd</span>VCU Ricochet Raas</li>
+              <li><span class="rank r3">3rd</span>Georgia Tech Ramblin Raas</li>
+              <li>RU Raga</li>
+              <li>UMD Entouraas</li>
+              <li>Michigan Wolveraas</li>
+              <li>GW Raas</li>
+              <li>VT Dhamaal</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Virsa</li>
+              <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
+              <li>Husky Bhangra</li>
+              <li>New England Bhangra Club</li>
+              <li>Classic City Bhangra</li>
+              <li>UNC Bhangra Elite</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VII</div><div class="yr">2024</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>RU Raga</li>
+              <li><span class="rank r2">2nd</span>NEU Nakhraas</li>
+              <li><span class="rank r3">3rd</span>VCU Ricochet Raas</li>
+              <li>VT Dhamaal</li>
+              <li>Columbia Raas</li>
+              <li>Steel City Raas</li>
+              <li>Tar Heel Raas</li>
+              <li>Case Cobraas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>DCMPA</li>
+              <li><span class="rank r2">2nd</span>RVD</li>
+              <li><span class="rank r3">3rd</span>UMD Bhangra</li>
+              <li>CIA Lok Naach</li>
+              <li>DCBC</li>
+              <li>VT Bhangra</li>
+              <li>Cornell Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VI</div><div class="yr">2023</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>RU Raga</li>
+              <li><span class="rank r2">2nd</span>UConn Thunderaas</li>
+              <li><span class="rank r3">3rd</span>NEU Nakhraas</li>
+              <li>Northwestern Raas</li>
+              <li>GW Raas</li>
+              <li>VT Dhamaal</li>
+              <li>Tar Heel Raas</li>
+              <li>UCSC Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>VT Bhangra</li>
+              <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
+              <li><span class="rank r3">3rd</span>DCBC</li>
+              <li>BBB</li>
+              <li>Gabroo Jawan</li>
+              <li>VCU Bhangra</li>
+              <li>Cardinal Bhangra</li>
+              <li>Spartan Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">V</div><div class="yr">2022</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>RU Raga</li>
+              <li><span class="rank r2">2nd</span>UCSD Raas Ruckus</li>
+              <li><span class="rank r3">3rd</span>VCU Ricochet Raas</li>
+              <li>NEU Nakhraas</li>
+              <li>UCD Raasleela</li>
+              <li>VT Dhamaal</li>
+              <li>UCB Raas Ramzat</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>UNC Bhangra Elite</li>
+              <li><span class="rank r2">2nd</span>Gator Bhangra</li>
+              <li><span class="rank r3">3rd</span>CMU Bhangra</li>
+              <li>VT Bhangra</li>
+              <li>Maryland Bhangra</li>
+              <li>First Class Bhangra</li>
+              <li>Boiler Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">IV</div><div class="yr">2021</div><span class="hint">Details <span class="chev">▾</span></span></summary>
+        <div class="ed-body" style="grid-template-columns:1fr">
+          <p class="ed-note">Held virtually due to COVID-19 — no in-person results recorded for this edition.</p>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">III</div><div class="yr">2020</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>RU Raga</li>
+              <li><span class="rank r2">2nd</span>GW Raas</li>
+              <li><span class="rank r3">3rd</span>UMD Entouraas</li>
+              <li>Drexel Raas</li>
+              <li>VT Dhamaal</li>
+              <li>GT Ramblin Raas</li>
+              <li>Steel City Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Furteelay Shokeen</li>
+              <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
+              <li><span class="rank r3">3rd</span>Stanford Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <div class="edition"><div class="v">II</div><div class="yr">2019</div></div>
       <div class="edition"><div class="v">I</div><div class="yr">Where it started</div></div>
     </div>
-    <p style="margin-top:18px"><span class="flag">Confirm exact edition years — I mapped VIII → 2026</span></p>
+    <p style="margin-top:18px"><span class="flag">Editions I &amp; II — team lineups not yet added</span></p>
   </div>
 </section>
 
