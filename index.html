@@ -226,6 +226,8 @@ body.intro-lock{overflow:hidden}
 .track .go{font-family:var(--ui);font-weight:600;font-size:.78rem;letter-spacing:.06em;color:var(--brick);display:inline-flex;gap:.5em}
 .track:hover .go{color:var(--peony)}
 .track-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.tickets-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.tbtn[disabled]{opacity:.55;cursor:not-allowed}
 .tbtn{font-family:var(--ui);font-weight:600;font-size:.79rem;padding:.55em 1.05em;border-radius:999px;display:inline-flex;align-items:center;gap:.4em;cursor:pointer;border:1.5px solid transparent;transition:transform .15s,background .2s,color .2s,border-color .2s}
 .tbtn-primary{background:var(--crimson);color:var(--cream-text)}
 .tbtn-primary:hover{background:var(--brick);transform:translateY(-2px)}
@@ -335,7 +337,7 @@ footer{background:#3d0f22;border-top:1px solid color-mix(in srgb,var(--gold) 22%
 @media (max-width:640px){
   .nav-links{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--crimson-2);border-bottom:1px solid color-mix(in srgb,var(--gold) 24%,transparent);padding:16px 26px 24px;transform:translateY(-150%);transition:transform .3s}
   .nav-links.open{transform:none}.nav-links a{padding:9px 0;font-size:1.05rem}
-  .nav-toggle{display:block}.tracks{grid-template-columns:1fr}.foot-top{flex-direction:column}
+  .nav-toggle{display:block}.tracks,.tickets-grid{grid-template-columns:1fr}.foot-top{flex-direction:column}
 }
 @media (max-width:470px){.brand-label{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -396,6 +398,7 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
       <a href="#about">About</a>
       <a href="board.html">Board</a>
       <a href="#invite">Save the Date</a>
+      <a href="#tickets">Tickets</a>
       <a href="#apply">Apply</a>
       <a href="#charity">Charity</a>
       <a href="#sponsors">Sponsors</a>
@@ -521,9 +524,38 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
       <div class="sd-date">Spring 2027</div>
       <div class="sd-place">Martin Luther King Jr. Performing Arts Center</div>
       <div class="sd-address"><a href="https://maps.google.com/?q=Martin+Luther+King+Jr.+Performing+Arts+Center,+1400+Melbourne+Rd,+Charlottesville,+VA+22901" target="_blank" rel="noopener">1400 Melbourne Rd, Charlottesville, VA 22901</a></div>
-      <div style="margin-top:14px"><span class="flag">Swap in the reveal date &amp; venue</span></div>
-      <div class="sd-cta"><a class="btn btn-ink" href="#apply">Reserve your spot →</a></div>
+      <div class="sd-cta"><a class="btn btn-ink" href="#tickets">Reserve your spot →</a></div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== TICKETS ===================== -->
+<section class="paper section" id="tickets">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow on-paper">Come celebrate with us</span>
+      <h2 class="h-sect">Buy tickets</h2>
+      <p class="lead">Two ways in: the show itself, and the afterparty once the trophies are handed out. Pricing and purchase links are on their way.</p>
+    </div>
+    <div class="tickets-grid">
+      <div class="track reveal">
+        <span class="num">I</span>
+        <h4>Show Tickets</h4>
+        <p>Watch the tenth East Coast Showdown live at the MLK Performing Arts Center.</p>
+        <div class="track-actions">
+          <button class="tbtn tbtn-primary" type="button" disabled>Coming soon</button>
+        </div>
+      </div>
+      <div class="track reveal">
+        <span class="num">II</span>
+        <h4>Afterparty Tickets</h4>
+        <p>Keep the celebration going after the show with the official ECS X afterparty.</p>
+        <div class="track-actions">
+          <button class="tbtn tbtn-primary" type="button" disabled>Coming soon</button>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:18px"><span class="flag">Ticket pricing &amp; purchase links: TBD</span></p>
   </div>
 </section>
 

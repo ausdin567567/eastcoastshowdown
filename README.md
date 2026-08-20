@@ -44,6 +44,9 @@ To change the board, edit that list — no layout code to touch.
 - **Livestream** — the `id="live"` section in `index.html` embeds a YouTube video by ID
   (`youtube-nocookie.com/embed/<id>`). Swap `WlYpYnL423c` for the real stream's video ID on
   competition day, and update the `stream-note` flag text once it's the live feed.
+- **Tickets** — the `id="tickets"` section in `index.html` has two `disabled` "Coming soon"
+  buttons for Show and Afterparty tickets. Once pricing/links are set, turn each `<button>`
+  into an `<a href="...">` (see the Apply buttons for the pattern) and remove the TBD flag.
 
 ## Run locally
 
