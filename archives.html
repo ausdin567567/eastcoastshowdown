@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Archives · ECS X · East Coast Showdown</title>
+<meta name="description" content="A decade of the East Coast Showdown: results, team lineups, and boards from editions I through X." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --crimson:#57172F;--crimson-2:#6d2340;--brick:#A53F2B;--peony:#D56AA0;
+  --gold:#FCBF49;--gold-deep:#B57A1C;--wheat:#EFD6AC;--paper:#F7EBD3;
+  --ink:#40101F;--cream-text:#FBEFDD;--muted-light:#e7c7ce;--muted-ink:#8a5140;
+  --maxw:1160px;--display:"Cormorant Garamond",Georgia,serif;--script:"Pinyon Script",cursive;--ui:"Jost",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--crimson);color:var(--cream-text);font-family:var(--ui);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-family:var(--ui);font-weight:500;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.75em}
+.eyebrow.center{justify-content:center}
+.eyebrow::before,.eyebrow.center::after{content:"";width:30px;height:1px;background:var(--gold);opacity:.7}
+.flag{font-family:var(--ui);font-size:.76rem;letter-spacing:.05em;color:var(--gold-deep);background:color-mix(in srgb,var(--gold) 22%,transparent);padding:.3em .8em;border-radius:6px;display:inline-block}
+.btn{font-family:var(--ui);font-weight:600;font-size:.9rem;letter-spacing:.02em;padding:.72em 1.5em;border-radius:999px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.55em;transition:transform .16s,box-shadow .22s,background .2s,color .2s}
+.btn-primary{background:var(--gold);color:#4a2c00}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(252,191,73,.6)}
+
+/* NAV (shared with home) */
+header.nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--crimson) 82%,transparent);border-bottom:1px solid color-mix(in srgb,var(--gold) 26%,transparent)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{height:48px;width:auto;filter:drop-shadow(0 3px 9px rgba(0,0,0,.45))}
+.brand-label{display:flex;flex-direction:column;padding-left:12px;border-left:1px solid color-mix(in srgb,var(--gold) 32%,transparent);font-family:var(--ui);font-weight:500;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-light);line-height:1.15}
+.brand-label small{font-size:.57rem;letter-spacing:.2em;color:var(--gold);margin-top:3px}
+.brand-label b{font-weight:700}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:.9rem;font-weight:500}
+.nav-links a{color:var(--muted-light);transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-toggle{display:none;background:none;border:none;color:var(--cream-text);cursor:pointer;padding:6px}
+
+/* TORAN */
+.toran{width:100%;height:auto;display:block}
+.toran .swag{fill:none;stroke:var(--gold);stroke-width:2;opacity:.85}
+.sway{transform-origin:top center;animation:sway 6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-.5deg)}50%{transform:rotate(.5deg)}}
+
+/* HEADER */
+.archives-hero{position:relative;text-align:center;padding:6px 0 clamp(30px,5vw,54px);overflow:hidden}
+.archives-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--brick) 55%,transparent),transparent 55%);z-index:0}
+.archives-hero .inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:clamp(28px,5vw,50px) 26px 0}
+.archives-hero .script{font-family:var(--script);font-size:clamp(1.7rem,5vw,2.6rem);color:var(--peony);line-height:1;margin-bottom:2px}
+.archives-hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;letter-spacing:.01em;margin:8px 0 0}
+.archives-hero p{color:var(--muted-light);max-width:56ch;margin:20px auto 0;font-size:1.06rem}
+
+/* TIMELINE */
+.timeline-section{padding:clamp(24px,5vw,48px) 0 clamp(56px,8vw,88px)}
+.timeline{display:flex;flex-wrap:wrap;gap:12px}
+.edition{flex:1 1 128px;background:var(--crimson-2);border:1px solid color-mix(in srgb,var(--gold) 24%,transparent);border-radius:13px;padding:20px 16px;text-align:center;transition:transform .2s,border-color .2s}
+.edition:hover{transform:translateY(-3px);border-color:var(--gold)}
+.edition .v{font-family:var(--display);font-weight:700;font-size:1.8rem;color:var(--wheat)}
+.edition .yr{font-family:var(--ui);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-light);margin-top:4px}
+.edition.finale{border-color:var(--gold);background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 18%,var(--crimson-2)),var(--crimson-2))}
+.edition.finale .v{color:var(--gold)}
+.edition[open]{flex:1 1 100%;border-color:var(--gold)}
+.edition summary{cursor:pointer;list-style:none;outline:none}
+.edition summary::-webkit-details-marker{display:none}
+.edition .hint{display:block;margin-top:8px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep)}
+.edition .hint .chev{display:inline-block;transition:transform .2s;margin-left:2px}
+.edition[open] .hint .chev{transform:rotate(180deg)}
+.ed-body{text-align:left;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+@media (max-width:520px){.ed-body{grid-template-columns:1fr}}
+.ed-group-title{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ed-teams{list-style:none;display:grid;gap:6px;font-size:.85rem;color:var(--muted-light)}
+.ed-teams li{display:flex;align-items:center;gap:8px}
+.ed-teams .rank{font-family:var(--ui);font-weight:700;font-size:.58rem;letter-spacing:.03em;padding:.22em .6em;border-radius:999px;flex:none;white-space:nowrap}
+.ed-teams .r1{background:var(--gold);color:#4a2c00}
+.ed-teams .r2{background:var(--wheat);color:var(--ink)}
+.ed-teams .r3{background:var(--peony);color:#3a0d1c}
+.team-logo-chip{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--wheat);flex:none;overflow:hidden;padding:2px}
+.team-logo{width:100%;height:100%;object-fit:contain;display:block}
+.ed-note{font-size:.9rem;color:var(--muted-light);font-style:italic;margin-top:2px}
+.ed-board{grid-column:1/-1;margin-top:6px;padding-top:18px;border-top:1px solid color-mix(in srgb,var(--gold) 22%,transparent)}
+.ed-board-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:7px 20px;font-size:.82rem;color:var(--muted-light)}
+.ed-board-list li{display:flex;justify-content:space-between;gap:10px}
+.ed-board-list .role{color:var(--gold);opacity:.85;font-size:.68rem;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;flex:none}
+
+/* FOOTER (shared) */
+footer{background:#3d0f22;border-top:1px solid color-mix(in srgb,var(--gold) 22%,transparent);padding:60px 0 38px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-brand{max-width:340px}
+.foot-mark{font-family:var(--display);font-weight:700;font-size:1.95rem;letter-spacing:.05em;color:var(--gold);line-height:1}
+.foot-mark .x{font-style:italic;padding-left:.1em}
+.foot-brand p{color:var(--muted-light);font-size:.92rem;margin-top:14px}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{font-family:var(--ui);font-size:.78rem;letter-spacing:.05em;padding:.5em .9em;border:1px solid color-mix(in srgb,var(--gold) 26%,transparent);border-radius:999px;color:var(--muted-light);transition:all .2s}
+.socials a:hover{color:var(--crimson);background:var(--gold);border-color:var(--gold)}
+.foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid color-mix(in srgb,var(--gold) 18%,transparent);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--ui);font-size:.74rem;letter-spacing:.06em;color:var(--muted-light)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:640px){
+  .nav-links{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--crimson-2);border-bottom:1px solid color-mix(in srgb,var(--gold) 24%,transparent);padding:16px 26px 24px;transform:translateY(-150%);transition:transform .3s}
+  .nav-links.open{transform:none}.nav-links a{padding:9px 0;font-size:1.05rem}
+  .nav-toggle{display:block}.foot-top{flex-direction:column}
+}
+@media (max-width:470px){.brand-label{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+
+/* ============================================================
+   CURSOR — Ring Of Hearts (animated, self-hosted)
+   Originally https://www.cursors-4u.com/cursor/hol149 — frames
+   inlined below so the site has no external runtime dependency.
+   ============================================================ */
+@keyframes cursor-anim {
+  0.00% { cursor: url("data:image/webp;base64,UklGRpABAABXRUJQVlA4TIQBAAAvH8AHECeBFpIkdXZA5/RODzVAH72GmbZtzKmIC6iAdg1R2zbyMJXTgTpA9+vv+Gz+A/+vwAisQAUqUJRhHAjUgiAWRBCCESjhguJITL93Ty5IsLYdjixy04RfTahB34zNt/9F8ieVHUT0fwKEwMlCitOkOE2KL6SELSVOikOGyBG5DyfFETsYInK/TBbAPM/rDqO1IccIKUUoOcbgX0yygyV3QSUgpMho+oA1lFIKWaLLWNUig+39LQP4+yVyI9iQwT/CH9rmWlbmBn7J8AwQ+tYSd3igjxyWpRHArxGYHw2loNSyVH7PE0BDdUpr/f53aAHgW1Jpg2U+gJ6DVnoYEXsAy64VKA3oYXzj5QHMzx1hwcrAvAH0ABB2wM8hM/XsqyXugC/YHWKVaEKyqRH8vMujJjvYwVIV88uHlZkDWmS0IXpjfmQAufhlXdf5UcCRJaJ7CGjnWynllsEmqvW2dap1nBw50l3X6fQlkLu8tf7R5mtIG34GbUacmsyIk/9vZ30Z") 0 0, auto; }
+  25.00% { cursor: url("data:image/webp;base64,UklGRqoBAABXRUJQVlA4TJ0BAAAvH8AHEEfBJJIkSclWwK6TXn5uzm0LOvSaQBLJVtZRgCYPjyQGjrYvE0gi2crikcTAfRSBaPs60OTPP8EkTbUdg/dvBUNBK4j/CUU5QQgBhUIJCIHgKQqlQpjnW3M59jTGdd0t2OvIIymQbdtW21ZAZBQ4uIEcI9SJ2/7/T6Sk3PIc0f8JYAw/zDj7Mc5+jLMf4+xrIxHdajj7yqhabcaKyADvfShpTURkhhzjnLlT7DpnPzKDalUyZxgYZxFZ6xDc6anbVpdSFlFs7DECSr1roj2KLqJ8dp8AQERkHrFwRLmPsAmIzLyymOm7Cgs0XTLSfJPbMeNQDh3gz4m8CSGk7xNbcwWQSC6EuIl786UegM1wsWunyfovoClACnE7rFv3BqCvCsCpFFegAeCvFX2PkIHcSSCHl9KL1FoCaLyLGUgA8JmRlNZKGwCX5oLq/pooo99bReYGhNs01ASLdCTSmsgA4Xa7zZsveIc8pWYOl2kS4radbB9C8OcTiqMhMnv22G5C7CQQnbWnY0TlQmZ/ASBvO4nvXWZkpcR/NwA=") 0 0, auto; }
+  50.00% { cursor: url("data:image/webp;base64,UklGRqgBAABXRUJQVlA4TJsBAAAvH8AHEC+hJpKkaDIErSc8YQUPkxMT4+E1gbZt2/AnX5yDvGfu3N5QNZEkRY0mPCESD5vxxcR4YP4JJmmq7Ri4/6dC4BOI/wgKpYIQIAQlGkKASgiCgtICAo2qMsPYY55r3ae/ziDBtq22dXBRAfQdUHFT+01v/nM04CiZwCGi/xOgkJ3VQe2G2g31FwqkIAH1VmEs5CIB9VaV03olzLAmUJfaWAmpA2rxQ87udAs9yRo7hRB1UL0ET47VdQY7ApKoeoku7aV/1JU2YBPcQNy7L6EuszbYP2uM+NKLB13ll8sWWoYEB6eB0WiDneRnC3gSr0ArGLCNwMW9lUMY29ylEE6RAqQAWQAP8IRi+3n4OVBqxqeBFKD4KPP1KLDcNRi04eEF2ghFhZxeHtpUOdfYh1uELkYhAZw1us4G+xA/uz4BZv+yjCbYCPhOkt3wsp4CzSQw+DkpExy1NeS7wG8v3q2R2Unw09QZO/n8vf0I9J1f1pzntpMY2nxsavuVcH/p4NJLvLaG5i57jrZh55F/sICdypx3Omf5PwEA") 0 0, auto; }
+  75.00% { cursor: url("data:image/webp;base64,UklGRtABAABXRUJQVlA4TMMBAAAvH8AHEEfBGpIkS+nUTgu5DNsM+/g+h9NQ1EhSVJ7GvwNGA8cbNIAasq1sCqlc2lRyuBJ95/DmP/D/o2ApGAVVUAolFJSiDAiUkkAQyp7bO893v/ku41goqIDSqCiEiMAgwbb2qG1kB0vGFOIBhDzhQorov/8lgsi0gf9F9H8CjMo368Z8m5pvU/MFk6K6Qs2npmf5p6ziCjWf2lNSkQoGelVd5fKyKpbMRo2vQ6tkXYL8qeW7LCi6MYHFbKD3l1ov5xLGhbkJJIfMh38HHbWkkLQPkvZ0G7u1LuZavHWJk6SHQPbfbZkcUX22NLQrGmFond3uHHGSQRe8pLtW6JrJARGBdpg1ggXB8fdDoBGXE8fiFhizJeusi5DHYYGoY7yZh0bfC2TYvds6G/VwWiK+hIcppo83gQEb3U4hHozAheXbMRdm/Yfk0YGq3h/S1QkikAF4cXsXVUfhcfIhBfTNbGhxER1fAvWF1b6ddedJcx1VgJD1qxqZx6fmWhUC3G+dp0v0XpbK3GlZdFwfN4FQN0MH/aWWFE94f+hdlsOpViVIugSqUb5xqlQLC3wZLy3sbouzXwZYpzZ+C5PDyvc65FcCAA==") 0 0, auto; }
+}
+html{animation:cursor-anim 800ms step-end infinite}
+a,button,input,textarea,label,[role=button],select,option{cursor:inherit!important}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="ECS X home">
+      <img class="brand-logo js-logo" alt="East Coast Showdown" />
+      <span class="brand-label">East Coast Showdown<small>Tenth Edition &middot; <b>X</b></small></span>
+    </a>
+    <nav class="nav-links" id="menu">
+      <a href="index.html#live">Live</a>
+      <a href="index.html#about">About</a>
+      <a href="board.html">Board</a>
+      <a href="index.html#tickets">Tickets</a>
+      <a href="index.html#charity">Charity</a>
+      <a href="index.html#sponsors">Sponsors</a>
+      <a href="archives.html" class="active">Archives</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="index.html#apply">Apply</a>
+      <button class="nav-toggle" id="toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="archives-hero">
+  <svg class="toran sway" viewBox="0 0 1200 96" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+    <path class="swag" d="M0,6 Q150,78 300,6 Q450,78 600,6 Q750,78 900,6 Q1050,78 1200,6"/>
+    <g id="drops"></g>
+  </svg>
+  <div class="inner">
+    <div class="script">a decade</div>
+    <span class="eyebrow center">ECS X · The Archives</span>
+    <h1>Ten editions in the making</h1>
+    <p>Nine showdowns down, and the tenth is the wedding. Browse the archives for past lineups, results, and boards.</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="wrap">
+    <div class="timeline reveal">
+      <div class="edition finale"><div class="v">X</div><div class="yr">2027 · The Shaadi</div></div>
+
+      <details class="edition">
+        <summary><div class="v">IX</div><div class="yr">2026</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/uiuc.png" alt="" loading="lazy"></span>Illini Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/steel-city.png" alt="" loading="lazy"></span>Steel City Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/sbu.png" alt="" loading="lazy"></span>SBU Raaswalas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/philthy.png" alt="" loading="lazy"></span>Philthy Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Gabroo Gulab Wargey</li>
+              <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
+              <li>Cornell Bhangra</li>
+              <li>CMU Bhangra</li>
+              <li>Georgia Tech Bhangra</li>
+              <li>Blue Jay Bhangra</li>
+            </ul>
+          </div>
+          <div class="ed-board">
+            <div class="ed-group-title">Board</div>
+            <ul class="ed-board-list">
+              <li>Rahil Karkar <span class="role">Director</span></li>
+              <li>Tanvee Sunkari <span class="role">Director</span></li>
+              <li>Nitya Varigala <span class="role">Director</span></li>
+              <li>Anandita Sharma <span class="role">Senior Advisor</span></li>
+              <li>Eshaan Jassal <span class="role">Logistics</span></li>
+              <li>Neha Amarnath <span class="role">Logistics</span></li>
+              <li>Yash Sunkara <span class="role">Technology</span></li>
+              <li>Rishi Sarraff <span class="role">Technology</span></li>
+              <li>Shritika Rao <span class="role">Raas Judging</span></li>
+              <li>Priyanshi Jeevagan <span class="role">Bhangra Judging</span></li>
+              <li>Bhadra Kadangal <span class="role">Head Liaison</span></li>
+              <li>Soham Sinha <span class="role">Head Liaison</span></li>
+              <li>Suraj Vaddi <span class="role">Raas Registration</span></li>
+              <li>Suhani Malhotra <span class="role">Bhangra Registration</span></li>
+              <li>Sanjum Sandhu <span class="role">Hospitality · Food &amp; Swag</span></li>
+              <li>Samai Patel <span class="role">Hospitality · Food &amp; Swag</span></li>
+              <li>Sanjana Rao <span class="role">Hospitality · Food &amp; Swag</span></li>
+              <li>Aryan Dhiman <span class="role">Hospitality · Transport &amp; Lodging</span></li>
+              <li>Rahul Sunilkumar <span class="role">Marketing</span></li>
+              <li>Sanjana Murugavel <span class="role">Marketing</span></li>
+              <li>Sahi Balguri <span class="role">Fundraising</span></li>
+              <li>Khushi Shah <span class="role">Fundraising</span></li>
+              <li>Sanika Kammara <span class="role">Mixer</span></li>
+              <li>Bharathi Kancharla <span class="role">Mixer</span></li>
+              <li>Ronit Shah <span class="role">Sponsorship</span></li>
+              <li>Anjali Ashok <span class="role">Sponsorship</span></li>
+              <li>Meera Shah <span class="role">Social</span></li>
+              <li>Navya Aenugu <span class="role">Social</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VIII</div><div class="yr">2025</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/purdue.png" alt="" loading="lazy"></span>Purdue Raas</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/vcu.png" alt="" loading="lazy"></span>VCU Ricochet Raas</li>
+              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/umd.png" alt="" loading="lazy"></span>UMD Entouraas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/gw.png" alt="" loading="lazy"></span>GW Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Virsa</li>
+              <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
+              <li>Husky Bhangra</li>
+              <li>New England Bhangra Club</li>
+              <li>Classic City Bhangra</li>
+              <li>UNC Bhangra Elite</li>
+            </ul>
+          </div>
+          <div class="ed-board">
+            <div class="ed-group-title">Board</div>
+            <ul class="ed-board-list">
+              <li>Anandita Sharma <span class="role">Director</span></li>
+              <li>Esha Sharma <span class="role">Director</span></li>
+              <li>Divya Lobo <span class="role">Senior Advisor</span></li>
+              <li>Akaash Kamdar <span class="role">Senior Advisor</span></li>
+              <li>Rishi Sarraff <span class="role">Logistics</span></li>
+              <li>Tanvee Sunkari <span class="role">Logistics</span></li>
+              <li>Kushan Dixit <span class="role">Technology</span></li>
+              <li>Nachiket Gusani <span class="role">Technology</span></li>
+              <li>Shruthi Solaiappan <span class="role">Marketing</span></li>
+              <li>Khushi Shah <span class="role">Marketing</span></li>
+              <li>Suhani Malhotra <span class="role">Social</span></li>
+              <li>Sanchya Kansal <span class="role">Sponsorship</span></li>
+              <li>Suraj Vaddi <span class="role">Sponsorship</span></li>
+              <li>Eshaan Jassal <span class="role">Fundraising</span></li>
+              <li>Navya Aenugu <span class="role">Fundraising</span></li>
+              <li>Darsh Devkar <span class="role">Hospitality</span></li>
+              <li>Sreya Peddi <span class="role">Hospitality</span></li>
+              <li>Rahil Karkar <span class="role">Hospitality</span></li>
+              <li>Nitya Varigala <span class="role">Mixer</span></li>
+              <li>Shivangi Singh <span class="role">Mixer</span></li>
+              <li>Nikki Shah <span class="role">Head Liaison</span></li>
+              <li>Priyanshi Jeevagan <span class="role">Head Liaison</span></li>
+              <li>Manmeet Singh <span class="role">Bhangra Registration</span></li>
+              <li>Dhriti Gampa <span class="role">Raas Registration</span></li>
+              <li>Krish Kothari <span class="role">Raas Judging</span></li>
+              <li>Sadhika Dhanasekar <span class="role">Bhangra Judging</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VII</div><div class="yr">2024</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/northeastern.png" alt="" loading="lazy"></span>NEU Nakhraas</li>
+              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/vcu.png" alt="" loading="lazy"></span>VCU Ricochet Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/columbia.png" alt="" loading="lazy"></span>Columbia Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/steel-city.png" alt="" loading="lazy"></span>Steel City Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/unc.png" alt="" loading="lazy"></span>Tar Heel Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/case-western.png" alt="" loading="lazy"></span>Case Cobraas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>DCMPA</li>
+              <li><span class="rank r2">2nd</span>RVD</li>
+              <li><span class="rank r3">3rd</span>UMD Bhangra</li>
+              <li>CIA Lok Naach</li>
+              <li>DCBC</li>
+              <li>VT Bhangra</li>
+              <li>Cornell Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">VI</div><div class="yr">2023</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/uconn.png" alt="" loading="lazy"></span>UConn Thunderaas</li>
+              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/northeastern.png" alt="" loading="lazy"></span>NEU Nakhraas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/nur.png" alt="" loading="lazy"></span>Northwestern Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/gw.png" alt="" loading="lazy"></span>GW Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/unc.png" alt="" loading="lazy"></span>Tar Heel Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/ucsc.png" alt="" loading="lazy"></span>UCSC Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>VT Bhangra</li>
+              <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
+              <li><span class="rank r3">3rd</span>DCBC</li>
+              <li>BBB</li>
+              <li>Gabroo Jawan</li>
+              <li>VCU Bhangra</li>
+              <li>Cardinal Bhangra</li>
+              <li>Spartan Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">V</div><div class="yr">2022</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/ucsd.png" alt="" loading="lazy"></span>UCSD Raas Ruckus</li>
+              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/vcu.png" alt="" loading="lazy"></span>VCU Ricochet Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/northeastern.png" alt="" loading="lazy"></span>NEU Nakhraas</li>
+              <li>UCD Raasleela</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/ucb.png" alt="" loading="lazy"></span>UCB Raas Ramzat</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>UNC Bhangra Elite</li>
+              <li><span class="rank r2">2nd</span>Gator Bhangra</li>
+              <li><span class="rank r3">3rd</span>CMU Bhangra</li>
+              <li>VT Bhangra</li>
+              <li>Maryland Bhangra</li>
+              <li>First Class Bhangra</li>
+              <li>Boiler Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">IV</div><div class="yr">2021</div><span class="hint">Details <span class="chev">▾</span></span></summary>
+        <div class="ed-body" style="grid-template-columns:1fr">
+          <p class="ed-note">Held virtually due to COVID-19. No in-person results recorded for this edition.</p>
+        </div>
+      </details>
+
+      <details class="edition">
+        <summary><div class="v">III</div><div class="yr">2020</div><span class="hint">Results <span class="chev">▾</span></span></summary>
+        <div class="ed-body">
+          <div class="ed-group">
+            <div class="ed-group-title">Raas</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gw.png" alt="" loading="lazy"></span>GW Raas</li>
+              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/umd.png" alt="" loading="lazy"></span>UMD Entouraas</li>
+              <li>Drexel Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>GT Ramblin Raas</li>
+              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/steel-city.png" alt="" loading="lazy"></span>Steel City Raas</li>
+            </ul>
+          </div>
+          <div class="ed-group">
+            <div class="ed-group-title">Bhangra</div>
+            <ul class="ed-teams">
+              <li><span class="rank r1">1st</span>Furteelay Shokeen</li>
+              <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
+              <li><span class="rank r3">3rd</span>Stanford Bhangra</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <div class="edition"><div class="v">II</div><div class="yr">2019</div></div>
+      <div class="edition"><div class="v">I</div><div class="yr">Where it started</div></div>
+    </div>
+    <p style="margin-top:18px"><span class="flag">Editions I &amp; II: team lineups not yet added</span></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-mark">ECS&nbsp;<span class="x">X</span></div>
+        <p>The intercollegiate Bhangra and Garba Raas dance competition, hosted at the University of Virginia in Charlottesville. Ten years, one shaadi.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">Follow the celebration</div>
+        <div class="socials">
+          <a href="https://www.instagram.com/eastcoast.showdown" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@eastcoastshowdown" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/EastCoastShowdown/" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:eastcoastshowdown.uva@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> East Coast Showdown · University of Virginia</span>
+      <span><a href="index.html">Home</a> · <a href="board.html">Board</a> · <a href="archives.html">Archives</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* logo (external file so the page stays lightweight) */
+const LOGO="ecs-logo-hero.png";
+document.querySelectorAll('.js-logo').forEach(function(el){el.src=LOGO;});
+
+/* mobile menu */
+const toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
+toggle.addEventListener('click',function(){var o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');});});
+
+/* toran pom-poms */
+(function(){
+  var g=document.getElementById('drops');if(!g)return;
+  var colors=['#FCBF49','#D56AA0','#A53F2B'],spans=[[0,300],[300,600],[600,900],[900,1200]];
+  spans.forEach(function(s){var x0=s[0],x1=s[1];
+    for(var t=0.12;t<=0.88;t+=0.19){
+      var x=x0+(x1-x0)*t,y=6+42*Math.sin(Math.PI*t),len=8+Math.random()*14,c=colors[Math.floor(Math.random()*3)];
+      g.insertAdjacentHTML('beforeend','<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y+len)+'" stroke="#FCBF49" stroke-width="1.2" opacity="0.7"/><circle cx="'+x+'" cy="'+(y+len+4)+'" r="4.2" fill="'+c+'"/>');
+    }
+  });
+})();
+
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
