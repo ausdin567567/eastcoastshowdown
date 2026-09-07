@@ -73,8 +73,14 @@ header.nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(12px);backgroun
 .edition .hint{display:block;margin-top:8px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep)}
 .edition .hint .chev{display:inline-block;transition:transform .2s;margin-left:2px}
 .edition[open] .hint .chev{transform:rotate(180deg)}
-.ed-body{text-align:left;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
-@media (max-width:520px){.ed-body{grid-template-columns:1fr}}
+.ed-body{text-align:left;margin-top:18px}
+.ed-view-results{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+@media (max-width:520px){.ed-view-results{grid-template-columns:1fr}}
+.ed-switch{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px}
+.ed-switch-btn{background:none;border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);color:var(--gold);width:30px;height:30px;border-radius:50%;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
+.ed-switch-btn:hover{background:color-mix(in srgb,var(--gold) 18%,transparent);transform:scale(1.08)}
+.ed-switch-label{font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wheat);min-width:100px;text-align:center}
+.ed-view[hidden]{display:none}
 .ed-group-title{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .ed-teams{list-style:none;display:grid;gap:6px;font-size:.85rem;color:var(--muted-light)}
 .ed-teams li{display:flex;align-items:center;gap:8px}
@@ -85,12 +91,12 @@ header.nav{position:sticky;top:0;z-index:70;backdrop-filter:blur(12px);backgroun
 .team-logo-chip{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--wheat);flex:none;overflow:hidden;padding:2px}
 .team-logo{width:100%;height:100%;object-fit:contain;display:block}
 .ed-note{font-size:.9rem;color:var(--muted-light);font-style:italic;margin-top:2px}
-.ed-board{grid-column:1/-1;margin-top:6px;padding-top:18px;border-top:1px solid color-mix(in srgb,var(--gold) 22%,transparent)}
-.ed-board-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:7px 20px;font-size:.82rem;color:var(--muted-light)}
+.ed-board{margin-top:0}
+.ed-board-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px 20px;font-size:.85rem;color:var(--muted-light)}
 .ed-board-list li{display:flex;justify-content:space-between;gap:10px}
 .ed-board-list .role{color:var(--gold);opacity:.85;font-size:.68rem;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;flex:none}
 .ed-board-list .member{display:flex;align-items:center;gap:8px}
-.ed-board-list .photo-chip{width:26px;height:26px;border-radius:50%;overflow:hidden;flex:none;background:var(--wheat)}
+.ed-board-list .photo-chip{width:56px;height:56px;border-radius:50%;overflow:hidden;flex:none;background:var(--wheat);border:2px solid color-mix(in srgb,var(--gold) 55%,transparent)}
 .ed-board-list .photo-chip img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* FOOTER (shared) */
@@ -182,60 +188,68 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
       <details class="edition">
         <summary><div class="v">IX</div><div class="yr">2026</div><span class="hint">Results <span class="chev">▾</span></span></summary>
         <div class="ed-body">
-          <div class="ed-group">
-            <div class="ed-group-title">Raas</div>
-            <ul class="ed-teams">
-              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
-              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/uiuc.png" alt="" loading="lazy"></span>Illini Raas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/steel-city.png" alt="" loading="lazy"></span>Steel City Raas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/sbu.png" alt="" loading="lazy"></span>SBU Raaswalas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/philthy.png" alt="" loading="lazy"></span>Philthy Raas</li>
-            </ul>
+          <div class="ed-switch">
+            <button class="ed-switch-btn" data-dir="prev" aria-label="Previous">‹</button>
+            <span class="ed-switch-label">Results</span>
+            <button class="ed-switch-btn" data-dir="next" aria-label="Next">›</button>
           </div>
-          <div class="ed-group">
-            <div class="ed-group-title">Bhangra</div>
-            <ul class="ed-teams">
-              <li><span class="rank r1">1st</span>Gabroo Gulab Wargey</li>
-              <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
-              <li>Cornell Bhangra</li>
-              <li>CMU Bhangra</li>
-              <li>Georgia Tech Bhangra</li>
-              <li>Blue Jay Bhangra</li>
-            </ul>
+          <div class="ed-view ed-view-results" data-label="Results">
+            <div class="ed-group">
+              <div class="ed-group-title">Raas</div>
+              <ul class="ed-teams">
+                <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
+                <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/uiuc.png" alt="" loading="lazy"></span>Illini Raas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/steel-city.png" alt="" loading="lazy"></span>Steel City Raas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/sbu.png" alt="" loading="lazy"></span>SBU Raaswalas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/philthy.png" alt="" loading="lazy"></span>Philthy Raas</li>
+              </ul>
+            </div>
+            <div class="ed-group">
+              <div class="ed-group-title">Bhangra</div>
+              <ul class="ed-teams">
+                <li><span class="rank r1">1st</span>Gabroo Gulab Wargey</li>
+                <li><span class="rank r2">2nd</span>VA School of Bhangra</li>
+                <li>Cornell Bhangra</li>
+                <li>CMU Bhangra</li>
+                <li>Georgia Tech Bhangra</li>
+                <li>Blue Jay Bhangra</li>
+              </ul>
+            </div>
           </div>
-          <div class="ed-board">
-            <div class="ed-group-title">Board</div>
-            <ul class="ed-board-list">
-              <li><span class="member"><span class="photo-chip"><img src="photos/rahil.jpg" alt="" loading="lazy"></span>Rahil Karkar</span> <span class="role">Director</span></li>
-              <li>Tanvee Sunkari <span class="role">Director</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/nitya.jpg" alt="" loading="lazy"></span>Nitya Varigala</span> <span class="role">Director</span></li>
-              <li>Anandita Sharma <span class="role">Senior Advisor</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/eshaan.jpg" alt="" loading="lazy"></span>Eshaan Jassal</span> <span class="role">Logistics</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/neha.jpg" alt="" loading="lazy"></span>Neha Amarnath</span> <span class="role">Logistics</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/yash.jpg" alt="" loading="lazy"></span>Yash Sunkara</span> <span class="role">Technology</span></li>
-              <li>Rishi Sarraff <span class="role">Technology</span></li>
-              <li>Shritika Rao <span class="role">Raas Judging</span></li>
-              <li>Priyanshi Jeevagan <span class="role">Bhangra Judging</span></li>
-              <li>Bhadra Kadangal <span class="role">Head Liaison</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/soham.jpg" alt="" loading="lazy"></span>Soham Sinha</span> <span class="role">Head Liaison</span></li>
-              <li>Suraj Vaddi <span class="role">Raas Registration</span></li>
-              <li>Suhani Malhotra <span class="role">Bhangra Registration</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/sanjum.jpg" alt="" loading="lazy"></span>Sanjum Sandhu</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/samai.jpg" alt="" loading="lazy"></span>Samai Patel</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/sanjana.jpg" alt="" loading="lazy"></span>Sanjana Rao</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/aryan.jpg" alt="" loading="lazy"></span>Aryan Dhiman</span> <span class="role">Hospitality · Transport &amp; Lodging</span></li>
-              <li>Rahul Sunilkumar <span class="role">Marketing</span></li>
-              <li>Sanjana Murugavel <span class="role">Marketing</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/sahi.jpg" alt="" loading="lazy"></span>Sahi Balguri</span> <span class="role">Fundraising</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/khushi.jpg" alt="" loading="lazy"></span>Khushi Shah</span> <span class="role">Fundraising</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/sanika.jpg" alt="" loading="lazy"></span>Sanika Kammara</span> <span class="role">Mixer</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/bharathi.jpg" alt="" loading="lazy"></span>Bharathi Kancharla</span> <span class="role">Mixer</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/ronit.jpg" alt="" loading="lazy"></span>Ronit Shah</span> <span class="role">Sponsorship</span></li>
-              <li>Anjali Ashok <span class="role">Sponsorship</span></li>
-              <li><span class="member"><span class="photo-chip"><img src="photos/meera.jpg" alt="" loading="lazy"></span>Meera Shah</span> <span class="role">Social</span></li>
-              <li>Navya Aenugu <span class="role">Social</span></li>
-            </ul>
+          <div class="ed-view ed-view-board" data-label="Board" hidden>
+            <div class="ed-board">
+              <ul class="ed-board-list">
+                <li><span class="member"><span class="photo-chip"><img src="photos/rahil.jpg" alt="" loading="lazy"></span>Rahil Karkar</span> <span class="role">Director</span></li>
+                <li>Tanvee Sunkari <span class="role">Director</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/nitya.jpg" alt="" loading="lazy"></span>Nitya Varigala</span> <span class="role">Director</span></li>
+                <li>Anandita Sharma <span class="role">Senior Advisor</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/eshaan.jpg" alt="" loading="lazy"></span>Eshaan Jassal</span> <span class="role">Logistics</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/neha.jpg" alt="" loading="lazy"></span>Neha Amarnath</span> <span class="role">Logistics</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/yash.jpg" alt="" loading="lazy"></span>Yash Sunkara</span> <span class="role">Technology</span></li>
+                <li>Rishi Sarraff <span class="role">Technology</span></li>
+                <li>Shritika Rao <span class="role">Raas Judging</span></li>
+                <li>Priyanshi Jeevagan <span class="role">Bhangra Judging</span></li>
+                <li>Bhadra Kadangal <span class="role">Head Liaison</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/soham.jpg" alt="" loading="lazy"></span>Soham Sinha</span> <span class="role">Head Liaison</span></li>
+                <li>Suraj Vaddi <span class="role">Raas Registration</span></li>
+                <li>Suhani Malhotra <span class="role">Bhangra Registration</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/sanjum.jpg" alt="" loading="lazy"></span>Sanjum Sandhu</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/samai.jpg" alt="" loading="lazy"></span>Samai Patel</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/sanjana.jpg" alt="" loading="lazy"></span>Sanjana Rao</span> <span class="role">Hospitality · Food &amp; Swag</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/aryan.jpg" alt="" loading="lazy"></span>Aryan Dhiman</span> <span class="role">Hospitality · Transport &amp; Lodging</span></li>
+                <li>Rahul Sunilkumar <span class="role">Marketing</span></li>
+                <li>Sanjana Murugavel <span class="role">Marketing</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/sahi.jpg" alt="" loading="lazy"></span>Sahi Balguri</span> <span class="role">Fundraising</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/khushi.jpg" alt="" loading="lazy"></span>Khushi Shah</span> <span class="role">Fundraising</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/sanika.jpg" alt="" loading="lazy"></span>Sanika Kammara</span> <span class="role">Mixer</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/bharathi.jpg" alt="" loading="lazy"></span>Bharathi Kancharla</span> <span class="role">Mixer</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/ronit.jpg" alt="" loading="lazy"></span>Ronit Shah</span> <span class="role">Sponsorship</span></li>
+                <li>Anjali Ashok <span class="role">Sponsorship</span></li>
+                <li><span class="member"><span class="photo-chip"><img src="photos/meera.jpg" alt="" loading="lazy"></span>Meera Shah</span> <span class="role">Social</span></li>
+                <li>Navya Aenugu <span class="role">Social</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </details>
@@ -243,60 +257,68 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
       <details class="edition">
         <summary><div class="v">VIII</div><div class="yr">2025</div><span class="hint">Results <span class="chev">▾</span></span></summary>
         <div class="ed-body">
-          <div class="ed-group">
-            <div class="ed-group-title">Raas</div>
-            <ul class="ed-teams">
-              <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/purdue.png" alt="" loading="lazy"></span>Purdue Raas</li>
-              <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/vcu.png" alt="" loading="lazy"></span>VCU Ricochet Raas</li>
-              <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/umd.png" alt="" loading="lazy"></span>UMD Entouraas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/gw.png" alt="" loading="lazy"></span>GW Raas</li>
-              <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
-            </ul>
+          <div class="ed-switch">
+            <button class="ed-switch-btn" data-dir="prev" aria-label="Previous">‹</button>
+            <span class="ed-switch-label">Results</span>
+            <button class="ed-switch-btn" data-dir="next" aria-label="Next">›</button>
           </div>
-          <div class="ed-group">
-            <div class="ed-group-title">Bhangra</div>
-            <ul class="ed-teams">
-              <li><span class="rank r1">1st</span>Virsa</li>
-              <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
-              <li>Husky Bhangra</li>
-              <li>New England Bhangra Club</li>
-              <li>Classic City Bhangra</li>
-              <li>UNC Bhangra Elite</li>
-            </ul>
+          <div class="ed-view ed-view-results" data-label="Results">
+            <div class="ed-group">
+              <div class="ed-group-title">Raas</div>
+              <ul class="ed-teams">
+                <li><span class="rank r1">1st</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/purdue.png" alt="" loading="lazy"></span>Purdue Raas</li>
+                <li><span class="rank r2">2nd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/vcu.png" alt="" loading="lazy"></span>VCU Ricochet Raas</li>
+                <li><span class="rank r3">3rd</span><span class="team-logo-chip"><img class="team-logo" src="team-logos/gt.png" alt="" loading="lazy"></span>Georgia Tech Ramblin Raas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/rutgers.png" alt="" loading="lazy"></span>RU Raga</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/umd.png" alt="" loading="lazy"></span>UMD Entouraas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/michigan.png" alt="" loading="lazy"></span>Michigan Wolveraas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/gw.png" alt="" loading="lazy"></span>GW Raas</li>
+                <li><span class="team-logo-chip"><img class="team-logo" src="team-logos/vt.png" alt="" loading="lazy"></span>VT Dhamaal</li>
+              </ul>
+            </div>
+            <div class="ed-group">
+              <div class="ed-group-title">Bhangra</div>
+              <ul class="ed-teams">
+                <li><span class="rank r1">1st</span>Virsa</li>
+                <li><span class="rank r2">2nd</span>CIA Lok Naach</li>
+                <li>Husky Bhangra</li>
+                <li>New England Bhangra Club</li>
+                <li>Classic City Bhangra</li>
+                <li>UNC Bhangra Elite</li>
+              </ul>
+            </div>
           </div>
-          <div class="ed-board">
-            <div class="ed-group-title">Board</div>
-            <ul class="ed-board-list">
-              <li>Anandita Sharma <span class="role">Director</span></li>
-              <li>Esha Sharma <span class="role">Director</span></li>
-              <li>Divya Lobo <span class="role">Senior Advisor</span></li>
-              <li>Akaash Kamdar <span class="role">Senior Advisor</span></li>
-              <li>Rishi Sarraff <span class="role">Logistics</span></li>
-              <li>Tanvee Sunkari <span class="role">Logistics</span></li>
-              <li>Kushan Dixit <span class="role">Technology</span></li>
-              <li>Nachiket Gusani <span class="role">Technology</span></li>
-              <li>Shruthi Solaiappan <span class="role">Marketing</span></li>
-              <li>Khushi Shah <span class="role">Marketing</span></li>
-              <li>Suhani Malhotra <span class="role">Social</span></li>
-              <li>Sanchya Kansal <span class="role">Sponsorship</span></li>
-              <li>Suraj Vaddi <span class="role">Sponsorship</span></li>
-              <li>Eshaan Jassal <span class="role">Fundraising</span></li>
-              <li>Navya Aenugu <span class="role">Fundraising</span></li>
-              <li>Darsh Devkar <span class="role">Hospitality</span></li>
-              <li>Sreya Peddi <span class="role">Hospitality</span></li>
-              <li>Rahil Karkar <span class="role">Hospitality</span></li>
-              <li>Nitya Varigala <span class="role">Mixer</span></li>
-              <li>Shivangi Singh <span class="role">Mixer</span></li>
-              <li>Nikki Shah <span class="role">Head Liaison</span></li>
-              <li>Priyanshi Jeevagan <span class="role">Head Liaison</span></li>
-              <li>Manmeet Singh <span class="role">Bhangra Registration</span></li>
-              <li>Dhriti Gampa <span class="role">Raas Registration</span></li>
-              <li>Krish Kothari <span class="role">Raas Judging</span></li>
-              <li>Sadhika Dhanasekar <span class="role">Bhangra Judging</span></li>
-            </ul>
+          <div class="ed-view ed-view-board" data-label="Board" hidden>
+            <div class="ed-board">
+              <ul class="ed-board-list">
+                <li>Anandita Sharma <span class="role">Director</span></li>
+                <li>Esha Sharma <span class="role">Director</span></li>
+                <li>Divya Lobo <span class="role">Senior Advisor</span></li>
+                <li>Akaash Kamdar <span class="role">Senior Advisor</span></li>
+                <li>Rishi Sarraff <span class="role">Logistics</span></li>
+                <li>Tanvee Sunkari <span class="role">Logistics</span></li>
+                <li>Kushan Dixit <span class="role">Technology</span></li>
+                <li>Nachiket Gusani <span class="role">Technology</span></li>
+                <li>Shruthi Solaiappan <span class="role">Marketing</span></li>
+                <li>Khushi Shah <span class="role">Marketing</span></li>
+                <li>Suhani Malhotra <span class="role">Social</span></li>
+                <li>Sanchya Kansal <span class="role">Sponsorship</span></li>
+                <li>Suraj Vaddi <span class="role">Sponsorship</span></li>
+                <li>Eshaan Jassal <span class="role">Fundraising</span></li>
+                <li>Navya Aenugu <span class="role">Fundraising</span></li>
+                <li>Darsh Devkar <span class="role">Hospitality</span></li>
+                <li>Sreya Peddi <span class="role">Hospitality</span></li>
+                <li>Rahil Karkar <span class="role">Hospitality</span></li>
+                <li>Nitya Varigala <span class="role">Mixer</span></li>
+                <li>Shivangi Singh <span class="role">Mixer</span></li>
+                <li>Nikki Shah <span class="role">Head Liaison</span></li>
+                <li>Priyanshi Jeevagan <span class="role">Head Liaison</span></li>
+                <li>Manmeet Singh <span class="role">Bhangra Registration</span></li>
+                <li>Dhriti Gampa <span class="role">Raas Registration</span></li>
+                <li>Krish Kothari <span class="role">Raas Judging</span></li>
+                <li>Sadhika Dhanasekar <span class="role">Bhangra Judging</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </details>
@@ -486,6 +508,24 @@ menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functi
 /* reveal */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* results / board switch */
+document.querySelectorAll('.ed-switch').forEach(function(sw){
+  var views = sw.parentElement.querySelectorAll('.ed-view');
+  var label = sw.querySelector('.ed-switch-label');
+  var idx = 0;
+  function render(){
+    views.forEach(function(v,i){ v.hidden = i !== idx; });
+    label.textContent = views[idx].dataset.label;
+  }
+  sw.querySelectorAll('.ed-switch-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      idx = (idx + (btn.dataset.dir === 'next' ? 1 : -1) + views.length) % views.length;
+      render();
+    });
+  });
+  render();
+});
 </script>
 </body>
 </html>
