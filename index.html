@@ -285,11 +285,13 @@ footer{background:#3d0f22;border-top:1px solid color-mix(in srgb,var(--gold) 22%
 .brand-label small{font-size:.57rem;letter-spacing:.2em;color:var(--gold);margin-top:3px}
 .brand-label b{font-weight:700}
 .brand{gap:10px}
-.hero-logo-wrap{position:relative;display:flex;justify-content:center;margin:0 auto;padding:14px 0}
+.hero-logo-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,3vw,28px);margin:0 auto;padding:14px 0}
 .hero-logo-wrap::before{content:"";position:absolute;top:50%;left:50%;width:min(700px,124%);aspect-ratio:1.7/1;transform:translate(-50%,-50%);z-index:0;filter:blur(3px);
   background:radial-gradient(ellipse at center, #5D231A 0%, color-mix(in srgb,#5D231A 50%,transparent) 42%, transparent 70%)}
 .hero-logo{position:relative;z-index:1;width:min(524px,88vw);height:auto;
   filter:drop-shadow(0 16px 38px rgba(0,0,0,.5)) drop-shadow(0 0 34px rgba(252,191,73,.13))}
+.hero-mascot{position:relative;z-index:1;width:clamp(70px,13vw,170px);height:auto;flex:none;filter:drop-shadow(0 10px 22px rgba(0,0,0,.35))}
+@media (max-width:640px){.hero-mascot{display:none}}
 .hero-x{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;font-family:var(--display);font-weight:700;color:var(--gold);letter-spacing:.34em;text-transform:uppercase;font-size:.82rem}
 .hero-x::before,.hero-x::after{content:"";width:46px;height:1px;background:var(--gold);opacity:.6}
 .foot-logo{height:60px;width:auto;border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.45)}
@@ -401,7 +403,9 @@ a,button,input,textarea,label,[role=button],select,option{cursor:inherit!importa
     <div class="invited">together with our teams, you're invited to the</div>
     <span class="eyebrow center">The Tenth Anniversary</span>
     <div class="hero-logo-wrap">
+      <img class="hero-mascot" src="mascot-boy.png" alt="" aria-hidden="true" loading="lazy">
       <img class="hero-logo js-logo" id="heroLogo" alt="East Coast Showdown · ECS X" />
+      <img class="hero-mascot" src="mascot-girl.png" alt="" aria-hidden="true" loading="lazy">
     </div>
     <div class="hero-x">Ten Years · X</div>
     <p class="hero-theme">A Shaadi: ten years of the East Coast Showdown</p>
