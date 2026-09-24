@@ -40,7 +40,7 @@ To change the board, edit that list — no layout code to touch.
   "Registration packet" buttons are placeholders (no link yet). Search `ekta.app` / `Registration packet`
   in `index.html`.
 - **Charity** — the Sakhi section is in `index.html` under `id="charity"`.
-- **Date / venue** — search `Spring 2027` in `index.html` to update once confirmed.
+- **Date / venue** — search `February 20th, 2027` in `index.html` to update if it changes.
 - **Livestream** — the `id="live"` section in `index.html` embeds a YouTube video by ID
   (`youtube-nocookie.com/embed/<id>`). Swap `WlYpYnL423c` for the real stream's video ID on
   competition day, and update the `stream-note` flag text once it's the live feed.
