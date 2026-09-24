@@ -248,22 +248,6 @@ body.skip-intro .intro-splash{display:none}
 .charity-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
 .charity h2{color:#fff}
 
-/* ============================================================
-   COMP WEEKEND
-   ============================================================ */
-.weekend{background:var(--crimson);position:relative;overflow:hidden}
-.weekend::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%, color-mix(in srgb,var(--brick) 55%,transparent),transparent 60%)}
-.weekend .wrap{position:relative;z-index:2}
-.weekend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media (max-width:800px){.weekend-grid{grid-template-columns:1fr}}
-.wk-card{background:var(--crimson-2);border:1px solid color-mix(in srgb,var(--gold) 24%,transparent);border-radius:16px;padding:30px 26px;text-align:center;transition:transform .2s,border-color .2s}
-.wk-card:hover{transform:translateY(-4px);border-color:var(--gold)}
-.wk-day{font-family:var(--ui);font-weight:600;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.wk-name{font-family:var(--script);font-size:clamp(2.2rem,5vw,2.8rem);color:var(--peony);margin-top:10px;line-height:1}
-.wk-kind{font-family:var(--ui);font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-light);margin-top:6px}
-.wk-loc{margin-top:18px;padding-top:18px;border-top:1px solid color-mix(in srgb,var(--gold) 20%,transparent)}
-.wk-loc a{font-family:var(--ui);font-weight:600;font-size:.95rem;color:var(--cream-text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--gold) 50%,transparent)}
-.wk-loc a:hover{color:var(--gold)}
 .charity p{color:#fbe6ec;max-width:52ch}
 .charity-stat{font-family:var(--display);font-weight:700;font-size:clamp(3rem,8vw,5.2rem);line-height:1;color:var(--gold)}
 .charity-stat + span{font-family:var(--ui);font-weight:500;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:#fbe6ec;display:block;margin-top:6px}
@@ -392,7 +376,7 @@ document.body.classList.add(
     <nav class="nav-links" id="menu">
       <a href="#live">Live</a>
       <a href="#about">About</a>
-      <a href="#weekend">Comp Weekend</a>
+      <a href="compweekend.html">Comp Weekend</a>
       <a href="board.html">Board</a>
       <a href="#tickets">Tickets</a>
       <a href="#charity">Charity</a>
@@ -495,37 +479,6 @@ document.body.classList.add(
       <div class="partner-badge">
         <img class="partner-logo" src="ras-logo.png" alt="RAS">
         <span>East Coast Showdown is an official <a href="https://raasallstars.com/" target="_blank" rel="noopener"><strong>RAS Bid Partner</strong></a></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== COMP WEEKEND ===================== -->
-<section class="weekend section" id="weekend">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">The itinerary</span>
-      <h2 class="h-sect" style="color:var(--wheat)">Comp Weekend</h2>
-      <p class="lead" style="color:var(--muted-light)">Three days, thrown like an actual wedding. Times are still being finalized, here's where to be.</p>
-    </div>
-    <div class="weekend-grid">
-      <div class="wk-card reveal">
-        <div class="wk-day">Friday Night</div>
-        <div class="wk-name">Mehendi</div>
-        <div class="wk-kind">Mixer</div>
-        <div class="wk-loc"><a href="https://maps.google.com/?q=Newcomb+Hall,+Charlottesville,+VA" target="_blank" rel="noopener">Newcomb Hall</a></div>
-      </div>
-      <div class="wk-card reveal">
-        <div class="wk-day">Saturday</div>
-        <div class="wk-name">Wedding</div>
-        <div class="wk-kind">Show</div>
-        <div class="wk-loc"><a href="https://maps.google.com/?q=Martin+Luther+King+Jr.+Performing+Arts+Center,+1400+Melbourne+Rd,+Charlottesville,+VA+22901" target="_blank" rel="noopener">MLK Performing Arts Center</a></div>
-      </div>
-      <div class="wk-card reveal">
-        <div class="wk-day">Saturday Night</div>
-        <div class="wk-name">Reception</div>
-        <div class="wk-kind">After Party</div>
-        <div class="wk-loc"><a href="https://maps.google.com/?q=The+Rapture,+Charlottesville,+VA" target="_blank" rel="noopener">The Rapture</a></div>
       </div>
     </div>
   </div>
