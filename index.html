@@ -201,6 +201,7 @@ body.intro-lock{overflow:hidden}
 .intro-splash .sd-hint{margin-top:16px;font-family:var(--ui);font-size:.74rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted-ink);opacity:.75}
 @media (prefers-reduced-motion:reduce){.intro-splash,.intro-splash .invite-card{transition:none}}
+body.skip-intro .intro-splash{display:none}
 
 /* confetti burst on "Open the Invitation" */
 #confetti{position:fixed;inset:0;z-index:305;pointer-events:none;overflow:hidden}
@@ -341,7 +342,12 @@ html{animation:cursor-anim 800ms step-end infinite}
 a,button,input,textarea,label,[role=button],select,option{cursor:inherit!important}
 </style>
 </head>
-<body class="intro-lock">
+<body>
+<script>
+document.body.classList.add(
+  (location.hash && location.hash !== '#top') ? 'skip-intro' : 'intro-lock'
+);
+</script>
 
 <!-- ===================== INTRO SPLASH ===================== -->
 <div class="intro-splash" id="intro" role="dialog" aria-modal="true" aria-label="Save the date">
