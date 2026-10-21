@@ -28,7 +28,11 @@ create policy "Teams can view their own row"
   using (auth.uid() = id);
 
 -- ---------------------------------------------------------------------------
--- team_members: roster rows (one per dancer) for a team
+-- team_members: NOT CURRENTLY USED.
+-- Roster/sizes/dietary info is pulled live from a published Google Sheet
+-- instead (see supabase/README.md) — this table is left in place in case you
+-- ever want to move roster data back into Supabase, but portal.html does not
+-- read from it.
 -- ---------------------------------------------------------------------------
 create table if not exists public.team_members (
   id uuid primary key default gen_random_uuid(),

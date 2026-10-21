@@ -233,16 +233,27 @@ menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functi
 
 /* =========================================================
    SUPABASE CONFIG
-   Fill these in once the Supabase project exists — both
-   values are safe to publish (they're the public anon key,
-   protected by the Row Level Security policies in
-   supabase/schema.sql), see supabase/README.md for setup.
+   Handles login + which team you are. Both values are safe
+   to publish (they're the public anon key, protected by the
+   Row Level Security policies in supabase/schema.sql), see
+   supabase/README.md for setup.
    ========================================================= */
 const SUPABASE_URL = "https://mwdeanfxrbsltaoqgera.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_bI3JTr4DeGCVzEQ6dEWtkg_97l85hkC";
 
 const configured = SUPABASE_URL.indexOf("YOUR_SUPABASE") !== 0;
 const sb = configured ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+/* =========================================================
+   ROSTER SHEET CONFIG
+   Roster/sizes/dietary info lives in a Google Sheet, one row
+   per dancer. Publish it to the web as CSV (File > Share >
+   Publish to web > select the roster tab > CSV) and paste
+   that URL here. See supabase/README.md for the exact column
+   headers expected and how matching to a team works.
+   ========================================================= */
+const ROSTER_CSV_URL = "YOUR_PUBLISHED_SHEET_CSV_URL";
+const rosterConfigured = ROSTER_CSV_URL.indexOf("YOUR_PUBLISHED") !== 0;
 
 const loginView = document.getElementById('login-view');
 const dashView = document.getElementById('dash-view');
@@ -256,6 +267,62 @@ function showMsg(text){
 }
 
 function escapeHtml(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* normalize a header like "Shirt Size" / "shirt_size" -> "shirtsize" so the
+   sheet's column names don't have to match byte-for-byte */
+function normalizeHeader(h){ return String(h||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
+
+/* minimal RFC4180 CSV parser — handles quoted fields, escaped quotes ("")
+   and commas/newlines inside quotes, which Google's published CSV uses */
+function parseCsv(text){
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (inQuotes){
+      if (c === '"'){
+        if (text[i+1] === '"'){ field += '"'; i++; }
+        else inQuotes = false;
+      } else field += c;
+    } else if (c === '"'){
+      inQuotes = true;
+    } else if (c === ','){
+      row.push(field); field = '';
+    } else if (c === '\n' || c === '\r'){
+      if (c === '\r' && text[i+1] === '\n') i++;
+      row.push(field); field = '';
+      rows.push(row); row = [];
+    } else {
+      field += c;
+    }
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  return rows.filter(function(r){ return r.length > 1 || (r[0] || '').trim() !== ''; });
+}
+
+/* fetch the published roster sheet and return only the rows for teamName */
+async function fetchRoster(teamName){
+  const res = await fetch(ROSTER_CSV_URL, { cache: 'no-store' });
+  if (!res.ok) throw new Error('roster fetch failed: ' + res.status);
+  const rows = parseCsv(await res.text());
+  if (rows.length < 1) return [];
+  const headers = rows[0].map(normalizeHeader);
+  const col = function(name){ return headers.indexOf(normalizeHeader(name)); };
+  const iTeam = col('Team Name'), iName = col('Full Name'), iRole = col('Role'),
+        iShirt = col('Shirt Size'), iPant = col('Pant Size'), iDiet = col('Dietary Restrictions');
+  const target = String(teamName || '').trim().toLowerCase();
+  return rows.slice(1)
+    .filter(function(r){ return (r[iTeam] || '').trim().toLowerCase() === target; })
+    .map(function(r){
+      return {
+        full_name: r[iName] || '',
+        role: iRole > -1 ? r[iRole] : '',
+        shirt_size: iShirt > -1 ? r[iShirt] : '',
+        pant_size: iPant > -1 ? r[iPant] : '',
+        dietary_restrictions: iDiet > -1 ? r[iDiet] : ''
+      };
+    });
+}
 
 async function loadDashboard(userId){
   const { data: team, error: teamErr } = await sb.from('teams').select('*').eq('id', userId).single();
@@ -276,11 +343,25 @@ async function loadDashboard(userId){
     document.getElementById('dash-notes').textContent = team.notes;
   }
 
-  const { data: roster } = await sb.from('team_members').select('*').eq('team_id', userId).order('full_name');
   const body = document.getElementById('roster-body');
   const empty = document.getElementById('roster-empty');
   body.innerHTML = '';
-  if (!roster || roster.length === 0) {
+
+  let roster = [];
+  if (rosterConfigured) {
+    try {
+      roster = await fetchRoster(team.team_name);
+    } catch (e) {
+      empty.textContent = "Couldn't load the roster sheet right now. Reach out to ECS if this keeps happening.";
+      empty.classList.remove('hidden');
+      roster = null;
+    }
+  }
+
+  if (roster === null) {
+    /* fetch error already shown above */
+  } else if (!roster || roster.length === 0) {
+    empty.textContent = 'No roster has been entered yet. Reach out to ECS if this looks wrong.';
     empty.classList.remove('hidden');
   } else {
     empty.classList.add('hidden');
