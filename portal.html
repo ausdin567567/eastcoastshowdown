@@ -238,8 +238,8 @@ menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functi
    protected by the Row Level Security policies in
    supabase/schema.sql), see supabase/README.md for setup.
    ========================================================= */
-const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://mwdeanfxrbsltaoqgera.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_bI3JTr4DeGCVzEQ6dEWtkg_97l85hkC";
 
 const configured = SUPABASE_URL.indexOf("YOUR_SUPABASE") !== 0;
 const sb = configured ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
